@@ -17,6 +17,8 @@
 		CE4E28182767FD1300261E53 /* FakeAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28172767FD1300261E53 /* FakeAppStoreTests.swift */; };
 		CE4E28222767FD1300261E53 /* FakeAppStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28212767FD1300261E53 /* FakeAppStoreUITests.swift */; };
 		CE4E28242767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28232767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift */; };
+		CE4E28342768081B00261E53 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28332768081B00261E53 /* SearchViewController.swift */; };
+		CE4E28362768085100261E53 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28352768085100261E53 /* BasicViewController.swift */; };
 		D66739835B2F3C4271A34DF8 /* Pods_FakeAppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A398716D3962A6B5254D3 /* Pods_FakeAppStore.framework */; };
 		E9A4F0FB5BB25B4623F04CE2 /* Pods_FakeAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34B5CF17176EEAB2C52DB8C /* Pods_FakeAppStoreTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,8 @@
 		CE4E281D2767FD1300261E53 /* FakeAppStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FakeAppStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4E28212767FD1300261E53 /* FakeAppStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppStoreUITests.swift; sourceTree = "<group>"; };
 		CE4E28232767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE4E28332768081B00261E53 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CE4E28352768085100261E53 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		D34B5CF17176EEAB2C52DB8C /* Pods_FakeAppStoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FakeAppStoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,7 +115,6 @@
 				537CF752AFD1973F76C64CBD /* Pods-FakeAppStoreTests.debug.xcconfig */,
 				04A9BF9907111B43550F2F04 /* Pods-FakeAppStoreTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,9 +143,9 @@
 		CE4E27FF2767FD1000261E53 /* FakeAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				CE4E2830276805B600261E53 /* ViewController */,
 				CE4E28002767FD1000261E53 /* AppDelegate.swift */,
 				CE4E28022767FD1000261E53 /* SceneDelegate.swift */,
-				CE4E28042767FD1000261E53 /* ViewController.swift */,
 				CE4E28062767FD1000261E53 /* Main.storyboard */,
 				CE4E28092767FD1300261E53 /* Assets.xcassets */,
 				CE4E280B2767FD1300261E53 /* LaunchScreen.storyboard */,
@@ -166,6 +169,16 @@
 				CE4E28232767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift */,
 			);
 			path = FakeAppStoreUITests;
+			sourceTree = "<group>";
+		};
+		CE4E2830276805B600261E53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE4E28042767FD1000261E53 /* ViewController.swift */,
+				CE4E28332768081B00261E53 /* SearchViewController.swift */,
+				CE4E28352768085100261E53 /* BasicViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +421,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4E28052767FD1000261E53 /* ViewController.swift in Sources */,
+				CE4E28362768085100261E53 /* BasicViewController.swift in Sources */,
 				CE4E28012767FD1000261E53 /* AppDelegate.swift in Sources */,
+				CE4E28342768081B00261E53 /* SearchViewController.swift in Sources */,
 				CE4E28032767FD1000261E53 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
