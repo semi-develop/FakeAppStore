@@ -7,6 +7,8 @@ target 'FakeAppStore' do
 
 
    pod 'SwiftyJSON'
+   pod 'RealmSwift'
+   pod 'Cosmos', '~> 23.0'
 
   # Pods for FakeAppStore
 
