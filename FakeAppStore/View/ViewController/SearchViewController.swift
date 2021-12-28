@@ -8,11 +8,10 @@
 import UIKit
 import Network
 
-class SearchViewController: UIViewController{
+class SearchViewController: BaseViewController{
 
     @IBOutlet weak var searchTb: UITableView!
     @IBOutlet weak var contentTb: UITableView!
-    @IBOutlet weak var networkErrVw: UIView!
     
     let naviTitle = "Search"
     let paramKeyTerm = "term"
@@ -20,6 +19,7 @@ class SearchViewController: UIViewController{
     var searchArr:[String] = []
     var filteredSearchArr:[String] = []
     var searchRequestParams:[String:Any] = Shared.searchApiBaseParams
+    
     
     var searchbarTbVw = UITableViewController()
     
@@ -31,16 +31,13 @@ class SearchViewController: UIViewController{
         
         setTableView()
         setSearchBar()
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "MessageReceived"),object: nil))
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests(completionHandler: { requests in
+            print(requests)
+        })
+//
         
-        NotificationCenter.default.addObserver(
-                forName: NSNotification.Name.networkStateNoti,
-                object: nil, queue: nil){
-                    noti in
-                    guard let isConnect = (noti.userInfo?[Shared.networNotiInfoKey] as? Bool) else{return}
-                    DispatchQueue.main.async {
-                        self.networkErrVw.isHidden = isConnect
-                    }
-                }
         
         //init search array
         searchArr = SearchHistoryRS.db.selectAll()
@@ -48,19 +45,11 @@ class SearchViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("SearchViewController viewDidLoad")
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController!.navigationBar.sizeToFit()
         
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name:NSNotification.Name.networkStateNoti , object: nil)
-    }
-    
-    @IBAction func goSetting(_ sender: Any) {
-        UIApplication.shared.open(URL(string: Shared.systemSettingUrl)!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,7 +111,7 @@ extension SearchViewController:UISearchResultsUpdating,UISearchBarDelegate{
         searchArr = SearchHistoryRS.db.selectAll()
         searchTb.reloadData()
         searchRequestParams["term"] = text
-        startRequest(with: Shared.Url.searchStore)
+        startRequest(with: Url.searchStore)
     }
     
     func clearSearchContents(){
@@ -199,7 +188,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             searchArr = SearchHistoryRS.db.selectAll()
             searchTb.reloadData()
             searchRequestParams[paramKeyTerm] = text
-            startRequest(with: Shared.Url.searchStore)
+            startRequest(with: Url.searchStore)
             break
         case contentTb:
             guard let appInfo = searchContents?.results?[indexPath.row] else{return}
@@ -254,8 +243,4 @@ extension SearchViewController:SendRequest{//api요청
         present(alert, animated: false, completion: nil)
     }
     
-    func networkError() {
-        print("networkError")
-        networkErrVw.isHidden = false
-    }
 }

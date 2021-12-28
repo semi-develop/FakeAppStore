@@ -20,7 +20,7 @@ class Request{
     var data:Data?
     
     init(stringUrl:String, params:[String:Any]){
-        self.stringUrl = Shared.Url.basicUrl + stringUrl
+        self.stringUrl = Url.basicUrl + stringUrl
         self.params = params
         sendUrl = URL(string: self.stringUrl)
         
@@ -32,7 +32,7 @@ class Request{
     }
     
     init(stringUrl:String){
-        self.stringUrl = Shared.Url.basicUrl + stringUrl
+        self.stringUrl = Url.basicUrl + stringUrl
         self.params = nil
         sendUrl = URL(string: stringUrl)
     }

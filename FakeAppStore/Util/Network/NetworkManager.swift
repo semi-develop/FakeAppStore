@@ -22,12 +22,16 @@ class NetworkCheck{
     }
     
     func startMonitor(){
+        print("startMonitor")
         monitor.start(queue: DispatchQueue.global())
         monitor.pathUpdateHandler = { [weak self] path in
+            print("pathUpdateHandler")
             self?.isConnected = path.status == .satisfied
-            NotificationCenter.default.post(name: Notification.Name.networkStateNoti, object: nil, userInfo: [Shared.networNotiInfoKey: self?.isConnected ?? true])
+            NotificationCenter.default.post(name: Notification.Name.networkStateNoti, object: nil, userInfo: [Noti.networNotiInfoKey: self?.isConnected ?? true])
         }
     }
+    
+
     
     func isConnect() -> Bool{
         return isConnected

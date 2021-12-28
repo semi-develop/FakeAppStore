@@ -6,12 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 struct Shared{
-    struct Url{
-        static let basicUrl = "https://itunes.apple.com/"
-        static let searchStore = "search?"
-    }
     
     static let searchApiBaseParams:[String:Any] = ["country":"KR",
                                                    "lang":"ko_kr",
@@ -45,7 +42,23 @@ struct Shared{
         static let count = 4 //마지막
     }
     
-    static let systemSettingUrl = "App-prefs:root=General&path=USAGE/CELLULAR_USAGE"
 
+}
+
+
+struct Url{
+    static let systemSettingUrl = "App-prefs:root=General&path=USAGE/CELLULAR_USAGE"
+    static let basicUrl = "https://itunes.apple.com/"
+    static let searchStore = "search?"
+}
+
+struct Size{
+    static let screenSizeW = UIScreen.main.bounds.width
+    static let screenSizeH = UIScreen.main.bounds.height
+    static let screenPointX = UIScreen.main.bounds.origin.x
+    static let screenPointY = UIScreen.main.bounds.origin.y
+}
+
+struct Noti{
     static let networNotiInfoKey = "isConnected"
 }

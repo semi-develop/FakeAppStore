@@ -38,6 +38,10 @@
 		CE5AFAB22773E42B00AD9834 /* AppDetailDescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAAA2773E42B00AD9834 /* AppDetailDescTableViewCell.swift */; };
 		CE5AFAB42773E5CE00AD9834 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAB32773E5CE00AD9834 /* UIImageView+Extension.swift */; };
 		CE5AFAB62773E6D200AD9834 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAB52773E6D200AD9834 /* Notification+Extension.swift */; };
+		CE5AFABC27744CA300AD9834 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFABB27744CA300AD9834 /* BaseViewController.swift */; };
+		CE5AFABF277542BA00AD9834 /* goNetworkSetVw.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5AFABE277542BA00AD9834 /* goNetworkSetVw.xib */; };
+		CE5AFAC1277542FE00AD9834 /* goNetworkSetVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAC0277542FE00AD9834 /* goNetworkSetVw.swift */; };
+		CE5AFAC5277596A700AD9834 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAC4277596A700AD9834 /* TestViewController.swift */; };
 		CE65C1DF276AADA3006F46BC /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1D4276AADA3006F46BC /* Dictionary+Extension.swift */; };
 		CE65C1E0276AADA3006F46BC /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1D5276AADA3006F46BC /* Array+Extension.swift */; };
 		CE65C1E1276AADA3006F46BC /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1D6276AADA3006F46BC /* UITextView+Extension.swift */; };
@@ -113,6 +117,10 @@
 		CE5AFAAA2773E42B00AD9834 /* AppDetailDescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailDescTableViewCell.swift; sourceTree = "<group>"; };
 		CE5AFAB32773E5CE00AD9834 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CE5AFAB52773E6D200AD9834 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		CE5AFABB27744CA300AD9834 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CE5AFABE277542BA00AD9834 /* goNetworkSetVw.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = goNetworkSetVw.xib; sourceTree = "<group>"; };
+		CE5AFAC0277542FE00AD9834 /* goNetworkSetVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goNetworkSetVw.swift; sourceTree = "<group>"; };
+		CE5AFAC4277596A700AD9834 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		CE65C1D4276AADA3006F46BC /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		CE65C1D5276AADA3006F46BC /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		CE65C1D6276AADA3006F46BC /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -243,6 +251,8 @@
 				A6943AB4277371C4009FCEBF /* GameViewController.swift */,
 				A6943AB2277371C3009FCEBF /* SearchViewController.swift */,
 				A6943AB3277371C4009FCEBF /* TodayViewController.swift */,
+				CE5AFABB27744CA300AD9834 /* BaseViewController.swift */,
+				CE5AFAC4277596A700AD9834 /* TestViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -270,6 +280,7 @@
 		CE5AFA982773DDA100AD9834 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE5AFABD2775429200AD9834 /* Custom */,
 				CE5AFAA22773E41E00AD9834 /* Cell */,
 				CE4E2830276805B600261E53 /* ViewController */,
 			);
@@ -306,6 +317,15 @@
 				CE5AFAA92773E42B00AD9834 /* SearchContentTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE5AFABD2775429200AD9834 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				CE5AFABE277542BA00AD9834 /* goNetworkSetVw.xib */,
+				CE5AFAC0277542FE00AD9834 /* goNetworkSetVw.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		CE65C1EE276B1787006F46BC /* Extensions */ = {
@@ -439,6 +459,7 @@
 				A6943ABF27737301009FCEBF /* Model in Resources */,
 				CE4E280D2767FD1300261E53 /* LaunchScreen.storyboard in Resources */,
 				CE4E280A2767FD1300261E53 /* Assets.xcassets in Resources */,
+				CE5AFABF277542BA00AD9834 /* goNetworkSetVw.xib in Resources */,
 				CE4E28082767FD1000261E53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,11 +588,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5AFABC27744CA300AD9834 /* BaseViewController.swift in Sources */,
 				CE5AFAAF2773E42B00AD9834 /* AppDetailUpdateTableViewCell.swift in Sources */,
 				A6943AB6277371C4009FCEBF /* ArcadeViewController.swift in Sources */,
 				CE5AFAB22773E42B00AD9834 /* AppDetailDescTableViewCell.swift in Sources */,
 				CE65C1EB276AB2A3006F46BC /* NetworkManager.swift in Sources */,
 				CE5AFAAB2773E42B00AD9834 /* AppDetailSceenshotTableViewCell.swift in Sources */,
+				CE5AFAC5277596A700AD9834 /* TestViewController.swift in Sources */,
 				CE65C1E3276AADA3006F46BC /* UIView+Extension.swift in Sources */,
 				CE5AFA9C2773E19B00AD9834 /* AppInfo.swift in Sources */,
 				CE4E283927681BBD00261E53 /* Const.swift in Sources */,
@@ -594,6 +617,7 @@
 				A6943ABA277371C4009FCEBF /* GameViewController.swift in Sources */,
 				CE65C1E6276AADA3006F46BC /* String+Extension.swift in Sources */,
 				CE65C1E1276AADA3006F46BC /* UITextView+Extension.swift in Sources */,
+				CE5AFAC1277542FE00AD9834 /* goNetworkSetVw.swift in Sources */,
 				A6943AB8277371C4009FCEBF /* SearchViewController.swift in Sources */,
 				CE5AFAB02773E42B00AD9834 /* AppDetailSceenshotCollectionViewCell.swift in Sources */,
 				A6943ABB277371C4009FCEBF /* AppViewController.swift in Sources */,
