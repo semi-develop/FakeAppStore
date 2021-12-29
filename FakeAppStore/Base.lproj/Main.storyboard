@@ -15,10 +15,34 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u94-Yk-wFK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4BJ-Bv-fc4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4BJ-Bv-fc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MDV-BP-2Mt"/>
+                            <constraint firstItem="u94-Yk-wFK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RSB-iS-Q6z"/>
+                            <constraint firstItem="u94-Yk-wFK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="T2R-j3-9jx"/>
+                            <constraint firstItem="u94-Yk-wFK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XoF-La-oY7"/>
+                            <constraint firstAttribute="bottom" secondItem="u94-Yk-wFK" secondAttribute="bottom" id="f0M-Cq-oPt"/>
+                            <constraint firstItem="4BJ-Bv-fc4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="o8S-uA-uja"/>
+                            <constraint firstItem="4BJ-Bv-fc4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ocX-CZ-v8l"/>
+                            <constraint firstAttribute="bottom" secondItem="4BJ-Bv-fc4" secondAttribute="bottom" id="p1f-qH-8vB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z3u-X0-ath"/>
+                    <connections>
+                        <outlet property="contentTb" destination="4BJ-Bv-fc4" id="YGQ-Lq-ywU"/>
+                        <outlet property="searchTb" destination="u94-Yk-wFK" id="GbH-lj-KQD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

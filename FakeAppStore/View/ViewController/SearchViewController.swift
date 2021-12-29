@@ -31,11 +31,11 @@ class SearchViewController: BaseViewController{
         
         setTableView()
         setSearchBar()
-        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "MessageReceived"),object: nil))
-        let center = UNUserNotificationCenter.current()
-        center.getPendingNotificationRequests(completionHandler: { requests in
-            print(requests)
-        })
+//        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "MessageReceived"),object: nil))
+//        let center = UNUserNotificationCenter.current()
+//        center.getPendingNotificationRequests(completionHandler: { requests in
+//            print(requests)
+//        })
 //
         
         
@@ -238,9 +238,10 @@ extension SearchViewController:SendRequest{//api요청
     
     func failRequest(){
         print("failRequest")
-        let alert = UIAlertController(title: NSLocalizedString("Hello", comment: ""), message: NSLocalizedString("TryAgain", comment: ""), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler : nil))
-        present(alert, animated: false, completion: nil)
+//        let alert = UIAlertController(title: NSLocalizedString("Hello", comment: ""), message: NSLocalizedString("TryAgain", comment: ""), preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler : nil))
+//        present(alert, animated: false, completion: nil)
     }
+
     
 }

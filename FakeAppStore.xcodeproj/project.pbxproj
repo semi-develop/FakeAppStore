@@ -53,6 +53,7 @@
 		CE65C1E9276AADA3006F46BC /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1DE276AADA3006F46BC /* UIButton+Extension.swift */; };
 		CE65C1EB276AB2A3006F46BC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1EA276AB2A3006F46BC /* NetworkManager.swift */; };
 		CE65C1ED276AB4A5006F46BC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1EC276AB4A5006F46BC /* Date+Extension.swift */; };
+		CED3A49D277BEA4B0024994C /* todo in Resources */ = {isa = PBXBuildFile; fileRef = CED3A49C277BEA4B0024994C /* todo */; };
 		D66739835B2F3C4271A34DF8 /* Pods_FakeAppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330A398716D3962A6B5254D3 /* Pods_FakeAppStore.framework */; };
 		E9A4F0FB5BB25B4623F04CE2 /* Pods_FakeAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34B5CF17176EEAB2C52DB8C /* Pods_FakeAppStoreTests.framework */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		CE65C1DE276AADA3006F46BC /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		CE65C1EA276AB2A3006F46BC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CE65C1EC276AB4A5006F46BC /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CED3A49C277BEA4B0024994C /* todo */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
 		D34B5CF17176EEAB2C52DB8C /* Pods_FakeAppStoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FakeAppStoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 		CE4E27FF2767FD1000261E53 /* FakeAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				CED3A49C277BEA4B0024994C /* todo */,
 				CE5AFA992773E16F00AD9834 /* Model */,
 				CE5AFA982773DDA100AD9834 /* View */,
 				CE4E283727680D2600261E53 /* Util */,
@@ -456,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED3A49D277BEA4B0024994C /* todo in Resources */,
 				A6943ABF27737301009FCEBF /* Model in Resources */,
 				CE4E280D2767FD1300261E53 /* LaunchScreen.storyboard in Resources */,
 				CE4E280A2767FD1300261E53 /* Assets.xcassets in Resources */,

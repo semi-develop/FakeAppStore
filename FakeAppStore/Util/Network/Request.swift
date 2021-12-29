@@ -10,7 +10,6 @@ import Foundation
 protocol SendRequest{
     func startRequest(with url:String)
     func failRequest()
-    func networkError()
 }
 
 class Request{
