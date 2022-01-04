@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 struct Shared{
     
     static let searchApiBaseParams:[String:Any] = ["country":"KR",
@@ -21,7 +22,6 @@ struct Shared{
         case networkError
     }
     
-    static let segueListToDetail = "goDetail"
     
     static let cornerRadius = 10.0
     
@@ -43,6 +43,10 @@ struct Shared{
     }
     
 
+}
+
+struct SegueName{
+    static let `segueListToDetail` = "goDetail"
 }
 
 

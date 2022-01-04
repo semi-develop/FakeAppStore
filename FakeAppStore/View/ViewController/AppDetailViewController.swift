@@ -8,7 +8,7 @@
 import UIKit
 
 class AppDetailViewController: UIViewController {
-    @IBOutlet weak var infoTb: UITableView!
+    @IBOutlet weak var 메: UITableView!
     
     var appInfo:AppInfo! //값을 넘겨받지 않으면 애초에 안넘어옴
     var appImg:UIImage?

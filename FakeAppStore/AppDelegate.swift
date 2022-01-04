@@ -15,12 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         NetworkCheck.networkCk.startMonitor()
-        let scrollingAppearance = UINavigationBarAppearance()
-        scrollingAppearance.configureWithTransparentBackground()
-        scrollingAppearance.backgroundColor = UIColor(named: "InterfaceStyleColor")
-
-        UINavigationBar.appearance().scrollEdgeAppearance = scrollingAppearance
-        UINavigationBar.appearance().compactAppearance = scrollingAppearance
+        
         return true
     }
 
