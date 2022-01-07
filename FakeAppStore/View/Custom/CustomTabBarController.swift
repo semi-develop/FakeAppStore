@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class CustomTabBarController:UITabBarController{
-    let NoNetworkVw = goNetworkSetVw(frame: CGRect(x: 0, y: 0, width: Size.screenSizeW, height: Size.screenSizeH))
+    let NoNetworkVw = GoNetworkSetVw(frame: CGRect(x: 0, y: 0, width: Size.screenSizeW, height: Size.screenSizeH))
     
     
     override func viewDidLoad() {
