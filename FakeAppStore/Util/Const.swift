@@ -27,11 +27,10 @@ struct Shared{
     
     struct AppDetailTbCell{
         static let basic = 0
-        static let summary = 1
-        static let screenshot = 2
-        static let desc = 3
-        static let update = 4
-        static let count = 5 //마지막
+        static let screenshot = 1
+        static let desc = 2
+        static let update = 3
+        static let count = 4 //마지막
     }
     
     struct AppDetailSummaryCVCell{

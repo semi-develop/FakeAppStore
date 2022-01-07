@@ -7,12 +7,12 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+class TodayViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        print("TodayViewController viewDidLoad")
     }
     
 

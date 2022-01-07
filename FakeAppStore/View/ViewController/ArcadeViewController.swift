@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArcadeViewController: UIViewController {
+class ArcadeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

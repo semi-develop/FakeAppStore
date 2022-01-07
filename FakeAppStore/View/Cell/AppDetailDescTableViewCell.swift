@@ -9,7 +9,11 @@ import UIKit
 
 class AppDetailDescTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var descLb: UILabel!
+    
+    @IBOutlet weak var readMoreVw: ReadMoreVw!
+    @IBOutlet weak var developerBtn: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

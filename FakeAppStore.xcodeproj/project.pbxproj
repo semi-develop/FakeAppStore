@@ -25,15 +25,11 @@
 		CE4E28222767FD1300261E53 /* FakeAppStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28212767FD1300261E53 /* FakeAppStoreUITests.swift */; };
 		CE4E28242767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28232767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift */; };
 		CE4E283927681BBD00261E53 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E283827681BBD00261E53 /* Const.swift */; };
-		CE5655B02782D9FC00F72E86 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5655AF2782D9FB00F72E86 /* CustomTabBarController.swift */; };
-		CE5655B22782DB6E00F72E86 /* CustomNavigatonBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5655B12782DB6E00F72E86 /* CustomNavigatonBarController.swift */; };
 		CE5AFA9C2773E19B00AD9834 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFA9A2773E19B00AD9834 /* AppInfo.swift */; };
 		CE5AFA9D2773E19B00AD9834 /* SearchContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFA9B2773E19B00AD9834 /* SearchContents.swift */; };
 		CE5AFAA02773E21800AD9834 /* SearchHistoryRS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFA9F2773E21800AD9834 /* SearchHistoryRS.swift */; };
 		CE5AFAAB2773E42B00AD9834 /* AppDetailSceenshotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA32773E42800AD9834 /* AppDetailSceenshotTableViewCell.swift */; };
 		CE5AFAAC2773E42B00AD9834 /* AppDetailBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA42773E42900AD9834 /* AppDetailBasicTableViewCell.swift */; };
-		CE5AFAAD2773E42B00AD9834 /* AppDetailSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA52773E42900AD9834 /* AppDetailSummaryCollectionViewCell.swift */; };
-		CE5AFAAE2773E42B00AD9834 /* AppDetailSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA62773E42900AD9834 /* AppDetailSummaryTableViewCell.swift */; };
 		CE5AFAAF2773E42B00AD9834 /* AppDetailUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA72773E42A00AD9834 /* AppDetailUpdateTableViewCell.swift */; };
 		CE5AFAB02773E42B00AD9834 /* AppDetailSceenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA82773E42A00AD9834 /* AppDetailSceenshotCollectionViewCell.swift */; };
 		CE5AFAB12773E42B00AD9834 /* SearchContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAA92773E42B00AD9834 /* SearchContentTableViewCell.swift */; };
@@ -41,8 +37,6 @@
 		CE5AFAB42773E5CE00AD9834 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAB32773E5CE00AD9834 /* UIImageView+Extension.swift */; };
 		CE5AFAB62773E6D200AD9834 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAB52773E6D200AD9834 /* Notification+Extension.swift */; };
 		CE5AFABC27744CA300AD9834 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFABB27744CA300AD9834 /* BaseViewController.swift */; };
-		CE5AFABF277542BA00AD9834 /* goNetworkSetVw.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5AFABE277542BA00AD9834 /* goNetworkSetVw.xib */; };
-		CE5AFAC1277542FE00AD9834 /* goNetworkSetVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAC0277542FE00AD9834 /* goNetworkSetVw.swift */; };
 		CE5AFAC5277596A700AD9834 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AFAC4277596A700AD9834 /* TestViewController.swift */; };
 		CE65C1DF276AADA3006F46BC /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1D4276AADA3006F46BC /* Dictionary+Extension.swift */; };
 		CE65C1E0276AADA3006F46BC /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65C1D5276AADA3006F46BC /* Array+Extension.swift */; };
@@ -107,15 +101,11 @@
 		CE4E28212767FD1300261E53 /* FakeAppStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppStoreUITests.swift; sourceTree = "<group>"; };
 		CE4E28232767FD1300261E53 /* FakeAppStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAppStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE4E283827681BBD00261E53 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		CE5655AF2782D9FB00F72E86 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		CE5655B12782DB6E00F72E86 /* CustomNavigatonBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigatonBarController.swift; sourceTree = "<group>"; };
 		CE5AFA9A2773E19B00AD9834 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		CE5AFA9B2773E19B00AD9834 /* SearchContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContents.swift; sourceTree = "<group>"; };
 		CE5AFA9F2773E21800AD9834 /* SearchHistoryRS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistoryRS.swift; sourceTree = "<group>"; };
 		CE5AFAA32773E42800AD9834 /* AppDetailSceenshotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailSceenshotTableViewCell.swift; sourceTree = "<group>"; };
 		CE5AFAA42773E42900AD9834 /* AppDetailBasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailBasicTableViewCell.swift; sourceTree = "<group>"; };
-		CE5AFAA52773E42900AD9834 /* AppDetailSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
-		CE5AFAA62773E42900AD9834 /* AppDetailSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		CE5AFAA72773E42A00AD9834 /* AppDetailUpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		CE5AFAA82773E42A00AD9834 /* AppDetailSceenshotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailSceenshotCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE5AFAA92773E42B00AD9834 /* SearchContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContentTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,8 +113,6 @@
 		CE5AFAB32773E5CE00AD9834 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CE5AFAB52773E6D200AD9834 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		CE5AFABB27744CA300AD9834 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		CE5AFABE277542BA00AD9834 /* goNetworkSetVw.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = goNetworkSetVw.xib; sourceTree = "<group>"; };
-		CE5AFAC0277542FE00AD9834 /* goNetworkSetVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goNetworkSetVw.swift; sourceTree = "<group>"; };
 		CE5AFAC4277596A700AD9834 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		CE65C1D4276AADA3006F46BC /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		CE65C1D5276AADA3006F46BC /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -318,8 +306,6 @@
 				CE5AFAAA2773E42B00AD9834 /* AppDetailDescTableViewCell.swift */,
 				CE5AFAA82773E42A00AD9834 /* AppDetailSceenshotCollectionViewCell.swift */,
 				CE5AFAA32773E42800AD9834 /* AppDetailSceenshotTableViewCell.swift */,
-				CE5AFAA52773E42900AD9834 /* AppDetailSummaryCollectionViewCell.swift */,
-				CE5AFAA62773E42900AD9834 /* AppDetailSummaryTableViewCell.swift */,
 				CE5AFAA72773E42A00AD9834 /* AppDetailUpdateTableViewCell.swift */,
 				CE5AFAA92773E42B00AD9834 /* SearchContentTableViewCell.swift */,
 			);
@@ -329,10 +315,6 @@
 		CE5AFABD2775429200AD9834 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				CE5AFABE277542BA00AD9834 /* goNetworkSetVw.xib */,
-				CE5AFAC0277542FE00AD9834 /* goNetworkSetVw.swift */,
-				CE5655AF2782D9FB00F72E86 /* CustomTabBarController.swift */,
-				CE5655B12782DB6E00F72E86 /* CustomNavigatonBarController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -469,7 +451,6 @@
 				A6943ABF27737301009FCEBF /* Model in Resources */,
 				CE4E280D2767FD1300261E53 /* LaunchScreen.storyboard in Resources */,
 				CE4E280A2767FD1300261E53 /* Assets.xcassets in Resources */,
-				CE5AFABF277542BA00AD9834 /* goNetworkSetVw.xib in Resources */,
 				CE4E28082767FD1000261E53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,7 +581,6 @@
 			files = (
 				CE5AFABC27744CA300AD9834 /* BaseViewController.swift in Sources */,
 				CE5AFAAF2773E42B00AD9834 /* AppDetailUpdateTableViewCell.swift in Sources */,
-				CE5655B02782D9FC00F72E86 /* CustomTabBarController.swift in Sources */,
 				A6943AB6277371C4009FCEBF /* ArcadeViewController.swift in Sources */,
 				CE5AFAB22773E42B00AD9834 /* AppDetailDescTableViewCell.swift in Sources */,
 				CE65C1EB276AB2A3006F46BC /* NetworkManager.swift in Sources */,
@@ -614,13 +594,10 @@
 				CE65C1E9276AADA3006F46BC /* UIButton+Extension.swift in Sources */,
 				CE65C1DF276AADA3006F46BC /* Dictionary+Extension.swift in Sources */,
 				CE5AFAB62773E6D200AD9834 /* Notification+Extension.swift in Sources */,
-				CE5655B22782DB6E00F72E86 /* CustomNavigatonBarController.swift in Sources */,
 				A6943AA72773712E009FCEBF /* Request.swift in Sources */,
 				CE65C1E4276AADA3006F46BC /* URL+Extension.swift in Sources */,
 				A6943AB9277371C4009FCEBF /* TodayViewController.swift in Sources */,
 				CE5AFAAC2773E42B00AD9834 /* AppDetailBasicTableViewCell.swift in Sources */,
-				CE5AFAAD2773E42B00AD9834 /* AppDetailSummaryCollectionViewCell.swift in Sources */,
-				CE5AFAAE2773E42B00AD9834 /* AppDetailSummaryTableViewCell.swift in Sources */,
 				CE5AFAB42773E5CE00AD9834 /* UIImageView+Extension.swift in Sources */,
 				CE5AFAB12773E42B00AD9834 /* SearchContentTableViewCell.swift in Sources */,
 				CE65C1ED276AB4A5006F46BC /* Date+Extension.swift in Sources */,
@@ -629,7 +606,6 @@
 				A6943ABA277371C4009FCEBF /* GameViewController.swift in Sources */,
 				CE65C1E6276AADA3006F46BC /* String+Extension.swift in Sources */,
 				CE65C1E1276AADA3006F46BC /* UITextView+Extension.swift in Sources */,
-				CE5AFAC1277542FE00AD9834 /* goNetworkSetVw.swift in Sources */,
 				A6943AB8277371C4009FCEBF /* SearchViewController.swift in Sources */,
 				CE5AFAB02773E42B00AD9834 /* AppDetailSceenshotCollectionViewCell.swift in Sources */,
 				A6943ABB277371C4009FCEBF /* AppViewController.swift in Sources */,

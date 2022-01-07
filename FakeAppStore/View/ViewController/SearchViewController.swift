@@ -43,7 +43,6 @@ class SearchViewController: BaseViewController{
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController!.navigationBar.sizeToFit()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,11 +124,11 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
         switch tableView{
             
         case searchbarTb:
-            print("filteredSearchArr \(filteredSearchArr)")
+            //print("filteredSearchArr \(filteredSearchArr)")
             return filteredSearchArr.count
             
         case contentTb:
-            print("searchContents?.resultCount \(searchContents?.resultCount)")
+            //print("searchContents?.resultCount \(searchContents?.resultCount)")
             return searchContents?.resultCount ?? 0
             
         default:
@@ -149,23 +148,70 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "searchContentTbCell") as! SearchContentTableViewCell
             
             guard let appInfo = searchContents?.results?[indexPath.row] else{return cell}
-//            cell.appImg.imgFromUrl(url: appInfo.artworkUrl60)
+            cell.appImg.imgFromUrl(stringUrl: appInfo.artworkUrl60)
             cell.appImg.layer.cornerRadius = Shared.cornerRadius
             cell.appNameLb.text = appInfo.trackName
             cell.ratingVw.rating = appInfo.averageUserRating
             cell.ratingLb.text = String(appInfo.userRatingCount)
             
-            print("cell size: \(cell.bounds)")
+            //스샷 구하기
+            if appInfo.screenshotUrls.count > 0{
+                //url에서 이름 따와야함. 규칙성을 모르니, 일단 이렇게 하드코딩해서 써야함.
+                var imgNm = appInfo.screenshotUrls[0].components(separatedBy: "/").last
+                imgNm = imgNm?.components(separatedBy: ".").first?.replace(target: "bb", to: "")
+                let imgSize = imgNm?.components(separatedBy: "x")
+                
+                //확정이에여?ㅋㅋㅋ
+                let imgW = Int(imgSize![0])!
+                let imgH = Int(imgSize![1])!
+                
+                if imgW >= imgH{ //한장만 들어감.
+                    let screenshot:UIImageView = {
+                        let height = CGFloat(Size.screenSizeW - 30) * CGFloat(imgH) / CGFloat(imgW)
+                        
+                        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: Size.screenSizeW - 30, height: height))
+                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[0])
+                        
+                        return view
+                    }()
+                    cell.screenshotsVw.addSubview(screenshot)
+                    
+                    print("cell.screenshotsVw.subviews \(cell.screenshotsVw.subviews)")
+                }else{
+                    //일단 하드코딩해놨는데 나중에 바꿔라..
+                    let width = CGFloat(Size.screenSizeW - 30 - 10) / 3
+                    let height =  width * CGFloat(imgH) / CGFloat(imgW)
+                    
+                    let screenshot1:UIImageView = {
+                        
+                        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[0])
+                        
+                        return view
+                    }()
+                    let screenshot2:UIImageView = {
+                        
+                        let view = UIImageView(frame: CGRect(x: width+5, y: 0, width: width, height: height))
+                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[1])
+                        
+                        return view
+                    }()
+                    let screenshot3:UIImageView = {
+                        
+                        let view = UIImageView(frame: CGRect(x: 2*(width+5), y: 0, width: width, height: height))
+                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[2])
+                        
+                        return view
+                    }()
+                    cell.screenshotsVw.addSubview(screenshot1)
+                    cell.screenshotsVw.addSubview(screenshot2)
+                    cell.screenshotsVw.addSubview(screenshot3)
+                    
+                    print("cell.screenshotsVw.subviews \(cell.screenshotsVw.subviews)")
+                }
+                
+            }
             
-//            for (idx,imgVw) in (cell.screenshotsVw.subviews as! [UIImageView]).enumerated()
-//            {
-//                if idx < appInfo.screenshotUrls.count{
-//                    imgVw.layer.cornerRadius = Shared.cornerRadius
-//                    imgVw.imgFromUrl(url: appInfo.screenshotUrls[idx])
-//                }else{
-//                    break
-//                }
-//            }
             
             return cell
             
@@ -174,22 +220,68 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch tableView{
+        case searchbarTb:
+            return UITableView.automaticDimension
+        case contentTb:
+            guard let appInfo = searchContents?.results?[indexPath.row] else{return 0}
+            
+            //스샷 구하기
+            if appInfo.screenshotUrls.count > 0{
+                //url에서 이름 따와야함. 규칙성을 모르니, 일단 이렇게 하드코딩해서 써야함.
+                
+                var imgNm = appInfo.screenshotUrls[0].components(separatedBy: "/").last
+                imgNm = imgNm?.components(separatedBy: ".").first?.replace(target: "bb", to: "")
+                let imgSize = imgNm?.components(separatedBy: "x")
+                
+                //확정이에여?ㅋㅋㅋ
+                let imgW = Int(imgSize![0])!
+                let imgH = Int(imgSize![1])!
+                
+                var cHeight = 80.0 + 45.0
+                
+                if imgW >= imgH{ //한장만 들어감.
+                    let height = CGFloat(Size.screenSizeW - 30) * CGFloat(imgH) / CGFloat(imgW)
+                    
+                    cHeight += height
+                }else{
+                    //일단 하드코딩해놨는데 나중에 바꿔라..
+                    let width = CGFloat(Size.screenSizeW - 30 - 10) / 3.0
+                    let height =  width * CGFloat(imgH) / CGFloat(imgW)
+                    
+                    cHeight += height
+                }
+                
+                return cHeight
+                
+             
+            }else{
+                return 0
+            }
+        default:
+            return 0
+        }
+    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch tableView{
         case searchbarTb:
             let text = (tableView == searchbarTb ? filteredSearchArr[indexPath.row] : searchArr[indexPath.row])
+            
+            navigationItem.searchController?.searchBar.text = text
+            
             SearchHistoryRS.db.insert(search: text)
             searchArr = SearchHistoryRS.db.selectAll()
             searchRequestParams[paramKeyTerm] = text
             startRequest(with: Url.searchStore)
             break
         case contentTb:
-//구현이 아직 안돼서 막아놓는다.
-//            guard let appInfo = searchContents?.results?[indexPath.row] else{return}
-//            selectContent = appInfo
-//            self.performSegue(withIdentifier: SegueName.segueListToDetail, sender: nil)
+            guard let appInfo = searchContents?.results?[indexPath.row] else{return}
+            selectContent = appInfo
+            self.performSegue(withIdentifier: SegueName.segueListToDetail, sender: nil)
             break
         default:
             break

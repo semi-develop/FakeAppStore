@@ -12,7 +12,14 @@ import UIKit
 extension UIImageView{
     
     
-    func imgFromUrl(url: String){
-        //setting code
+    func imgFromUrl(stringUrl: String){
+        guard let url = URL(string: stringUrl) else{return}
+        URLSession.shared.dataTask(with: url){
+            (data, response, error) in
+            guard let data2 = data else{return}
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data2)
+            }
+        }.resume()
     }
 }
