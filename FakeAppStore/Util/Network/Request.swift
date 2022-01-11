@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol SendRequest{
-    func startRequest(with url:String)
+protocol SendAppListRequest{
+    var url:String {get}
+    func startAppListRequest()
     func failRequest()
 }
 
@@ -28,7 +29,6 @@ class Request{
         let queryItems = params.map{ URLQueryItem(name: "\($0)", value: "\($1)") }
         urlComponents?.queryItems = queryItems
         sendUrl = urlComponents?.url
-        print("sendUrl \(sendUrl)")
     }
     
     init(stringUrl:String){

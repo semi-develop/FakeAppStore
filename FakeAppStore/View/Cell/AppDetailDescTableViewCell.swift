@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol ReadMoreDelegate: AnyObject{
+    func readMoreIn(cell: AppDetailDescTableViewCell)
+}
+
 class AppDetailDescTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var readMoreVw: ReadMoreVw!
+    @IBOutlet weak var readMoreVw: UIView!
+    @IBOutlet weak var descLb: UILabel!
+    @IBOutlet weak var readMoreBtn: UIButton!
     @IBOutlet weak var developerBtn: UIButton!
+
+    var readMoreDelegate:ReadMoreDelegate?
     
     
     override func awakeFromNib() {
@@ -25,4 +33,7 @@ class AppDetailDescTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func readMoreClick(_ sender: Any) {
+        readMoreDelegate?.readMoreIn(cell: self )
+    }
 }

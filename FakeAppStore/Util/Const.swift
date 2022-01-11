@@ -60,6 +60,9 @@ struct Size{
     static let screenSizeH = UIScreen.main.bounds.height
     static let screenPointX = UIScreen.main.bounds.origin.x
     static let screenPointY = UIScreen.main.bounds.origin.y
+    static let vertivalMargin = 15.0
+    static let horizonMargin = 15.0
+    static let viewMargin = 5.0
 }
 
 struct Noti{

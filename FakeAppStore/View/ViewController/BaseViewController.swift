@@ -14,6 +14,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.connectNetwork(is: NetworkCheck.networkCk.isConnect())
+        
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name.networkStateNoti,
             object: nil, queue: nil){
@@ -24,10 +26,6 @@ class BaseViewController: UIViewController {
                     self.connectNetwork(is: isConnect)
                 }
             }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
     }
     
     
@@ -48,6 +46,9 @@ class BaseViewController: UIViewController {
     
     func networkError() {
         print("networkError")
+        let alert = UIAlertController(title: "오류", message: "네트워크 에러. 다시 시도해주세요.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler : nil))
+        present(alert, animated: false, completion: nil)
         //connectNetwork(is: false)
     }
     

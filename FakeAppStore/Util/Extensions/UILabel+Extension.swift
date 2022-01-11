@@ -43,5 +43,21 @@ extension UILabel {
         return Int(ceil(CGFloat(labelSize.height) / font.lineHeight))
     }
 
+    func heightToFit(){
+        
+        guard let text = self.text else{return}
+        let width = self.bounds.width
+        let font:UIFont = self.font.withSize(17.0)
+        
+       
+        let size = CGSize(width: width, height: 1000)
 
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+
+        let attributes = [NSAttributedString.Key.font: font]
+
+        let height = String(text).boundingRect(with: size, options: options, attributes: attributes, context: nil).height
+        
+        self.bounds.size.height = height
+    }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jyb-kz-gNe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jyb-kz-gNe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -113,7 +113,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWh-8J-PzH">
-                                                            <rect key="frame" x="0.0" y="95" width="384" height="279"/>
+                                                            <rect key="frame" x="0.0" y="85" width="384" height="289"/>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -124,7 +124,7 @@
                                                         <constraint firstItem="7DX-d2-Mht" firstAttribute="leading" secondItem="p9s-4M-pM4" secondAttribute="leading" id="9L0-BK-Tvk"/>
                                                         <constraint firstAttribute="bottom" secondItem="mWh-8J-PzH" secondAttribute="bottom" id="KHT-lo-1tP"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="dS3-mt-jJP"/>
-                                                        <constraint firstItem="mWh-8J-PzH" firstAttribute="top" secondItem="7DX-d2-Mht" secondAttribute="bottom" constant="15" id="vVo-hg-US5"/>
+                                                        <constraint firstItem="mWh-8J-PzH" firstAttribute="top" secondItem="7DX-d2-Mht" secondAttribute="bottom" constant="5" id="vVo-hg-US5"/>
                                                         <constraint firstItem="mWh-8J-PzH" firstAttribute="leading" secondItem="p9s-4M-pM4" secondAttribute="leading" id="wST-Nb-xUU"/>
                                                     </constraints>
                                                 </view>
@@ -280,14 +280,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnA-mz-mwx" customClass="ReadMoreVw" customModule="FakeAppStore" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnA-mz-mwx">
                                                     <rect key="frame" x="15" y="15" width="384" height="174"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-D8-NwL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="61"/>
+                                                            <string key="text">case Shared.AppDetailTbCell.desc:
+            if readMore{
+                var height = 30 + </string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="VMc-D8-NwL" firstAttribute="top" secondItem="mnA-mz-mwx" secondAttribute="top" id="Ivi-1b-Op8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VMc-D8-NwL" secondAttribute="trailing" id="jCy-Sr-1PC"/>
+                                                        <constraint firstItem="VMc-D8-NwL" firstAttribute="leading" secondItem="mnA-mz-mwx" secondAttribute="leading" id="mHO-O7-AaU"/>
+                                                    </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duW-wR-VcA">
                                                     <rect key="frame" x="15" y="15" width="384" height="174"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="readMoreClick:" destination="I8E-bO-nqg" eventType="touchUpInside" id="EgR-wP-Dz7"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGh-Bf-rQ0">
                                                     <rect key="frame" x="15" y="189" width="384" height="50"/>
@@ -355,8 +373,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="descLb" destination="VMc-D8-NwL" id="exh-mO-dLu"/>
                                             <outlet property="developerBtn" destination="J5w-Oc-xef" id="tP1-5t-Nc7"/>
-                                            <outlet property="readMoreVw" destination="mnA-mz-mwx" id="8qB-1A-Hvi"/>
+                                            <outlet property="readMoreBtn" destination="duW-wR-VcA" id="jbU-TX-f3c"/>
+                                            <outlet property="readMoreVw" destination="mnA-mz-mwx" id="5K3-1H-Wp5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -604,6 +624,11 @@
             <point key="canvasLocation" x="3500" y="438"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="288-OS-gI7">
+            <size key="intrinsicContentSize" width="80" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="airplane" catalog="system" width="128" height="115"/>
         <image name="arrowtriangle.forward" catalog="system" width="128" height="113"/>

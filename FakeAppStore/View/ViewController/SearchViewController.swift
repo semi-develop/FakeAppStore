@@ -15,6 +15,8 @@ class SearchViewController: BaseViewController{
     let naviTitle = "Search"
     let paramKeyTerm = "term"
     
+    let screenshotMax = 3
+    
     var searchArr:[String] = []
     var filteredSearchArr:[String] = []
     var searchRequestParams:[String:Any] = Shared.searchApiBaseParams
@@ -105,7 +107,7 @@ extension SearchViewController:UISearchResultsUpdating,UISearchBarDelegate{
         SearchHistoryRS.db.insert(search: text)
         searchArr = SearchHistoryRS.db.selectAll()
         searchRequestParams["term"] = text
-        startRequest(with: Url.searchStore)
+        startAppListRequest()
     }
     
     func clearSearchContents(){
@@ -160,16 +162,17 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
                 var imgNm = appInfo.screenshotUrls[0].components(separatedBy: "/").last
                 imgNm = imgNm?.components(separatedBy: ".").first?.replace(target: "bb", to: "")
                 let imgSize = imgNm?.components(separatedBy: "x")
-                
-                //확정이에여?ㅋㅋㅋ
+
+
                 let imgW = Int(imgSize![0])!
                 let imgH = Int(imgSize![1])!
-                
+
                 if imgW >= imgH{ //한장만 들어감.
                     let screenshot:UIImageView = {
-                        let height = CGFloat(Size.screenSizeW - 30) * CGFloat(imgH) / CGFloat(imgW)
+                        let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2)
+                        let height = width * CGFloat(imgH) / CGFloat(imgW)
                         
-                        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: Size.screenSizeW - 30, height: height))
+                        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
                         view.imgFromUrl(stringUrl: appInfo.screenshotUrls[0])
                         
                         return view
@@ -178,36 +181,23 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
                     
                     print("cell.screenshotsVw.subviews \(cell.screenshotsVw.subviews)")
                 }else{
-                    //일단 하드코딩해놨는데 나중에 바꿔라..
-                    let width = CGFloat(Size.screenSizeW - 30 - 10) / 3
+                    let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2 - Size.viewMargin*CGFloat(screenshotMax)) / CGFloat(screenshotMax)
                     let height =  width * CGFloat(imgH) / CGFloat(imgW)
                     
-                    let screenshot1:UIImageView = {
-                        
-                        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[0])
-                        
-                        return view
-                    }()
-                    let screenshot2:UIImageView = {
-                        
-                        let view = UIImageView(frame: CGRect(x: width+5, y: 0, width: width, height: height))
-                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[1])
-                        
-                        return view
-                    }()
-                    let screenshot3:UIImageView = {
-                        
-                        let view = UIImageView(frame: CGRect(x: 2*(width+5), y: 0, width: width, height: height))
-                        view.imgFromUrl(stringUrl: appInfo.screenshotUrls[2])
-                        
-                        return view
-                    }()
-                    cell.screenshotsVw.addSubview(screenshot1)
-                    cell.screenshotsVw.addSubview(screenshot2)
-                    cell.screenshotsVw.addSubview(screenshot3)
+                    let screenshotCnt = appInfo.screenshotUrls.count > screenshotMax ? screenshotMax : appInfo.screenshotUrls.count
                     
-                    print("cell.screenshotsVw.subviews \(cell.screenshotsVw.subviews)")
+                    for idx in 0...screenshotCnt-1{
+                        
+                        let screenshot:UIImageView = {
+                            
+                            let view = UIImageView(frame: CGRect(x: CGFloat(idx)*(width + Size.viewMargin), y: 0, width: width, height: height))
+                            view.imgFromUrl(stringUrl: appInfo.screenshotUrls[idx])
+                            
+                            return view
+                        }()
+                        
+                        cell.screenshotsVw.addSubview(screenshot)
+                    }
                 }
                 
             }
@@ -240,15 +230,15 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
                 let imgW = Int(imgSize![0])!
                 let imgH = Int(imgSize![1])!
                 
-                var cHeight = 80.0 + 45.0
+                var cHeight = 80.0 + Size.vertivalMargin*2 + Size.viewMargin //80.0 위에 뷰
                 
                 if imgW >= imgH{ //한장만 들어감.
-                    let height = CGFloat(Size.screenSizeW - 30) * CGFloat(imgH) / CGFloat(imgW)
+                    let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2)
+                    let height = width * CGFloat(imgH) / CGFloat(imgW)
                     
                     cHeight += height
                 }else{
-                    //일단 하드코딩해놨는데 나중에 바꿔라..
-                    let width = CGFloat(Size.screenSizeW - 30 - 10) / 3.0
+                    let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2 - Size.viewMargin*CGFloat(screenshotMax)) / CGFloat(screenshotMax)
                     let height =  width * CGFloat(imgH) / CGFloat(imgW)
                     
                     cHeight += height
@@ -276,7 +266,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             SearchHistoryRS.db.insert(search: text)
             searchArr = SearchHistoryRS.db.selectAll()
             searchRequestParams[paramKeyTerm] = text
-            startRequest(with: Url.searchStore)
+            startAppListRequest ()
             break
         case contentTb:
             guard let appInfo = searchContents?.results?[indexPath.row] else{return}
@@ -290,9 +280,13 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
     
 }
 
-extension SearchViewController:SendRequest{//api요청
+extension SearchViewController:SendAppListRequest{
+    var url: String {
+        return Url.searchStore
+    }
+    //app list api요청
     
-    func startRequest(with url: String) {
+    func startAppListRequest() {
         
         searchbarTb.isHidden = true
         navigationItem.searchController?.searchBar.endEditing(true)
