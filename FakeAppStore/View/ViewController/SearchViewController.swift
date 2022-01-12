@@ -15,12 +15,22 @@ class SearchViewController: BaseViewController{
     let naviTitle = "Search"
     let paramKeyTerm = "term"
     
+    let seacrchContentsCellId = "searchContentTbCell"
+    
+    let seacrchContentsCellIdx = 0
+    
     let screenshotMax = 3
+    
+    enum TableMode{
+        case historyMode
+        case contentsMode
+    }
     
     var searchArr:[String] = []
     var filteredSearchArr:[String] = []
-    var searchRequestParams:[String:Any] = Shared.searchApiBaseParams
+    var searchRequestParams:[String:Any] = Url.searchStoreBaseParams
     
+    var tableMode:TableMode = .historyMode
     
     var searchbarTbVw = UITableViewController()
     var searchbarTb = UITableView()
@@ -33,7 +43,6 @@ class SearchViewController: BaseViewController{
         
         setSearchBar()
 
-        
         
         //init search array
         searchArr = SearchHistoryRS.db.selectAll()
@@ -104,13 +113,15 @@ extension SearchViewController:UISearchResultsUpdating,UISearchBarDelegate{
     }
     
     func searchApp(text:String){
-        SearchHistoryRS.db.insert(search: text)
+        tableMode = .contentsMode
+        SearchHistoryRS.db.insert(search: text.trim())
         searchArr = SearchHistoryRS.db.selectAll()
         searchRequestParams["term"] = text
         startAppListRequest()
     }
     
     func clearSearchContents(){
+        tableMode = .historyMode
         if searchContents != nil{
             if searchContents!.resultCount > 0{
                 contentTb.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
@@ -126,12 +137,15 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
         switch tableView{
             
         case searchbarTb:
-            //print("filteredSearchArr \(filteredSearchArr)")
             return filteredSearchArr.count
             
         case contentTb:
-            //print("searchContents?.resultCount \(searchContents?.resultCount)")
-            return searchContents?.resultCount ?? 0
+            switch tableMode{
+            case .historyMode:
+                return searchArr.count
+            case .contentsMode:
+                return searchContents?.resultCount ?? 0
+            }
             
         default:
             return 0
@@ -147,42 +161,48 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
             
         case contentTb:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "searchContentTbCell") as! SearchContentTableViewCell
-            
-            guard let appInfo = searchContents?.results?[indexPath.row] else{return cell}
-            cell.appImg.imgFromUrl(stringUrl: appInfo.artworkUrl60)
-            cell.appImg.layer.cornerRadius = Shared.cornerRadius
-            cell.appNameLb.text = appInfo.trackName
-            cell.ratingVw.rating = appInfo.averageUserRating
-            cell.ratingLb.text = String(appInfo.userRatingCount)
-            
-            //스샷 구하기
-            if appInfo.screenshotUrls.count > 0{
-                //url에서 이름 따와야함. 규칙성을 모르니, 일단 이렇게 하드코딩해서 써야함.
-                var imgNm = appInfo.screenshotUrls[0].components(separatedBy: "/").last
-                imgNm = imgNm?.components(separatedBy: ".").first?.replace(target: "bb", to: "")
-                let imgSize = imgNm?.components(separatedBy: "x")
+            switch tableMode{
+            case .historyMode:
+                let cell = UITableViewCell()
+                cell.textLabel?.text = searchArr[indexPath.row]
+                
+                return cell
+                
+            case .contentsMode:
+                let cell = tableView.dequeueReusableCell(withIdentifier: seacrchContentsCellId) as! SearchContentTableViewCell
+                
+                guard let appInfo = searchContents?.results?[indexPath.row] else{return cell}
+                cell.appImg.imgFromUrl(stringUrl: appInfo.artworkUrl60)
+                cell.appImg.layer.cornerRadius = Radius.appIcon
+                cell.appNameLb.text = appInfo.trackName
+                cell.ratingVw.rating = appInfo.averageUserRating
+                cell.ratingLb.text = String(appInfo.userRatingCount)
+                
+                //스샷 구하기
+                guard appInfo.screenshotUrls.count > 0 else{return cell}
+                
+                cell.screenshotsVw.removeAllSubviews() //뒤에 자꾸 잔여 뷰가 남는다. 지우자.
+                
+                let imgSize = imgSizeArrayFromUrl(url: appInfo.screenshotUrls[0])
 
-
-                let imgW = Int(imgSize![0])!
-                let imgH = Int(imgSize![1])!
-
-                if imgW >= imgH{ //한장만 들어감.
+                if imgSize.width >= imgSize.height{ //한장만 들어감.
                     let screenshot:UIImageView = {
                         let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2)
-                        let height = width * CGFloat(imgH) / CGFloat(imgW)
+                        let height = width * CGFloat(imgSize.height) / CGFloat(imgSize.width)
                         
                         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
                         view.imgFromUrl(stringUrl: appInfo.screenshotUrls[0])
+                        view.layer.cornerRadius = Radius.screenshot
+                        view.clipsToBounds = true
                         
                         return view
                     }()
+                    
                     cell.screenshotsVw.addSubview(screenshot)
                     
-                    print("cell.screenshotsVw.subviews \(cell.screenshotsVw.subviews)")
                 }else{
                     let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2 - Size.viewMargin*CGFloat(screenshotMax)) / CGFloat(screenshotMax)
-                    let height =  width * CGFloat(imgH) / CGFloat(imgW)
+                    let height =  width * CGFloat(imgSize.height) / CGFloat(imgSize.width)
                     
                     let screenshotCnt = appInfo.screenshotUrls.count > screenshotMax ? screenshotMax : appInfo.screenshotUrls.count
                     
@@ -192,6 +212,8 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
                             
                             let view = UIImageView(frame: CGRect(x: CGFloat(idx)*(width + Size.viewMargin), y: 0, width: width, height: height))
                             view.imgFromUrl(stringUrl: appInfo.screenshotUrls[idx])
+                            view.layer.cornerRadius = Radius.screenshot
+                            view.clipsToBounds = true
                             
                             return view
                         }()
@@ -200,15 +222,14 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
                     }
                 }
                 
+                return cell
             }
-            
-            
-            return cell
             
         default:
             let cell = UITableViewCell()
             return cell
         }
+            
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -216,40 +237,34 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
         case searchbarTb:
             return UITableView.automaticDimension
         case contentTb:
-            guard let appInfo = searchContents?.results?[indexPath.row] else{return 0}
-            
-            //스샷 구하기
-            if appInfo.screenshotUrls.count > 0{
-                //url에서 이름 따와야함. 규칙성을 모르니, 일단 이렇게 하드코딩해서 써야함.
+            switch tableMode{
+            case .historyMode:
+                return 30.0
+            case .contentsMode:
+                guard let appInfo = searchContents?.results?[indexPath.row] else{return 0}
                 
-                var imgNm = appInfo.screenshotUrls[0].components(separatedBy: "/").last
-                imgNm = imgNm?.components(separatedBy: ".").first?.replace(target: "bb", to: "")
-                let imgSize = imgNm?.components(separatedBy: "x")
+                //스샷 구하기
+                guard appInfo.screenshotUrls.count > 0 else{return 0}
                 
-                //확정이에여?ㅋㅋㅋ
-                let imgW = Int(imgSize![0])!
-                let imgH = Int(imgSize![1])!
+                let imgSize = imgSizeArrayFromUrl(url: appInfo.screenshotUrls[0])
                 
                 var cHeight = 80.0 + Size.vertivalMargin*2 + Size.viewMargin //80.0 위에 뷰
                 
-                if imgW >= imgH{ //한장만 들어감.
+                if imgSize.width >= imgSize.height{ //한장만 들어감.
                     let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2)
-                    let height = width * CGFloat(imgH) / CGFloat(imgW)
+                    let height = width * CGFloat(imgSize.height) / CGFloat(imgSize.width)
                     
                     cHeight += height
                 }else{
                     let width = CGFloat(Size.screenSizeW - Size.vertivalMargin*2 - Size.viewMargin*CGFloat(screenshotMax)) / CGFloat(screenshotMax)
-                    let height =  width * CGFloat(imgH) / CGFloat(imgW)
+                    let height =  width * CGFloat(imgSize.height) / CGFloat(imgSize.width)
                     
                     cHeight += height
                 }
                 
                 return cHeight
-                
-             
-            }else{
-                return 0
             }
+            
         default:
             return 0
         }
@@ -259,19 +274,25 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
         
         switch tableView{
         case searchbarTb:
-            let text = (tableView == searchbarTb ? filteredSearchArr[indexPath.row] : searchArr[indexPath.row])
+            let text = filteredSearchArr[indexPath.row]
             
             navigationItem.searchController?.searchBar.text = text
             
-            SearchHistoryRS.db.insert(search: text)
-            searchArr = SearchHistoryRS.db.selectAll()
-            searchRequestParams[paramKeyTerm] = text
-            startAppListRequest ()
+            searchApp(text: text)
             break
         case contentTb:
-            guard let appInfo = searchContents?.results?[indexPath.row] else{return}
-            selectContent = appInfo
-            self.performSegue(withIdentifier: SegueName.segueListToDetail, sender: nil)
+            switch tableMode{
+            case .historyMode:
+                let text = searchArr[indexPath.row]
+                
+                navigationItem.searchController?.searchBar.text = text
+                
+                searchApp(text: text)
+            case .contentsMode:
+                guard let appInfo = searchContents?.results?[indexPath.row] else{return}
+                selectContent = appInfo
+                self.performSegue(withIdentifier: SegueName.segueListToDetail, sender: nil)
+            }
             break
         default:
             break
@@ -284,7 +305,6 @@ extension SearchViewController:SendAppListRequest{
     var url: String {
         return Url.searchStore
     }
-    //app list api요청
     
     func startAppListRequest() {
         

@@ -37,7 +37,7 @@ class Request{
         sendUrl = URL(string: stringUrl)
     }
     
-    func sendRequest(completion: @escaping (Shared.RequestState) -> ()){
+    func sendRequest(completion: @escaping (RequestState) -> ()){
         if !NetworkCheck.networkCk.isConnect(){ //혹시 모르니 한번 더 체크
             completion(.networkError)
         }else{

@@ -14,17 +14,21 @@ protocol ReadMoreDelegate: AnyObject{
 class AppDetailDescTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var readMoreVw: UIView!
+    @IBOutlet weak var descVw: UIView!
     @IBOutlet weak var descLb: UILabel!
     @IBOutlet weak var readMoreBtn: UIButton!
     @IBOutlet weak var developerBtn: UIButton!
-
+    @IBOutlet weak var readMoreVw: UIView!
+    @IBOutlet weak var readMoreGradatientVw: UIView!
+    
     var readMoreDelegate:ReadMoreDelegate?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        readMoreGradatientVw.gradatient(startColor: .systemBackground.withAlphaComponent(0.3), endColor: .systemBackground.withAlphaComponent(1.0))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

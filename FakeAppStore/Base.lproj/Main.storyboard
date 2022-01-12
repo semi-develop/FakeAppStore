@@ -244,8 +244,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-JZ-idB">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-JZ-idB">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKH-gz-ine">
                                                             <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
@@ -261,12 +262,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </scrollView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="e3x-JZ-idB" firstAttribute="leading" secondItem="JoV-NM-f8U" secondAttribute="leading" id="FlC-el-tkG"/>
-                                                <constraint firstItem="e3x-JZ-idB" firstAttribute="top" secondItem="JoV-NM-f8U" secondAttribute="top" id="Fo4-cd-C3m"/>
-                                                <constraint firstAttribute="trailing" secondItem="e3x-JZ-idB" secondAttribute="trailing" id="Vds-s8-TZe"/>
-                                                <constraint firstAttribute="bottom" secondItem="e3x-JZ-idB" secondAttribute="bottom" id="zXm-27-Qyg"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="screenshotsSc" destination="e3x-JZ-idB" id="IaL-Km-UGi"/>
@@ -297,6 +292,34 @@
                                                         <constraint firstItem="VMc-D8-NwL" firstAttribute="top" secondItem="mnA-mz-mwx" secondAttribute="top" id="Ivi-1b-Op8"/>
                                                         <constraint firstAttribute="trailing" secondItem="VMc-D8-NwL" secondAttribute="trailing" id="jCy-Sr-1PC"/>
                                                         <constraint firstItem="VMc-D8-NwL" firstAttribute="leading" secondItem="mnA-mz-mwx" secondAttribute="leading" id="mHO-O7-AaU"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehE-Mb-nAT">
+                                                    <rect key="frame" x="329" y="162" width="70" height="27"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-Nn-NUD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="27"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYk-Jy-DOQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="27"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="PYk-Jy-DOQ" firstAttribute="top" secondItem="ehE-Mb-nAT" secondAttribute="top" id="6Lc-oK-bzR"/>
+                                                        <constraint firstAttribute="height" constant="27" id="8i7-Vl-TNL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PYk-Jy-DOQ" secondAttribute="trailing" id="FlW-L1-WG2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="4yw-Nn-NUD" secondAttribute="bottom" id="OQo-A9-yjM"/>
+                                                        <constraint firstAttribute="width" constant="70" id="YW9-ul-X56"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4yw-Nn-NUD" secondAttribute="trailing" id="aj6-BC-wej"/>
+                                                        <constraint firstItem="4yw-Nn-NUD" firstAttribute="leading" secondItem="ehE-Mb-nAT" secondAttribute="leading" id="dWU-0P-tLT"/>
+                                                        <constraint firstItem="PYk-Jy-DOQ" firstAttribute="leading" secondItem="ehE-Mb-nAT" secondAttribute="leading" id="dlE-Og-UbU"/>
+                                                        <constraint firstItem="4yw-Nn-NUD" firstAttribute="top" secondItem="ehE-Mb-nAT" secondAttribute="top" id="fVZ-YT-aT0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PYk-Jy-DOQ" secondAttribute="bottom" id="im7-DX-HR0"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duW-wR-VcA">
@@ -361,6 +384,8 @@
                                             <constraints>
                                                 <constraint firstItem="mnA-mz-mwx" firstAttribute="top" secondItem="UaO-tD-rMm" secondAttribute="top" constant="15" id="0He-oL-JiF"/>
                                                 <constraint firstItem="duW-wR-VcA" firstAttribute="leading" secondItem="mnA-mz-mwx" secondAttribute="leading" id="1oc-jv-Tzc"/>
+                                                <constraint firstItem="ehE-Mb-nAT" firstAttribute="bottom" secondItem="mnA-mz-mwx" secondAttribute="bottom" id="1sF-Bu-2zn"/>
+                                                <constraint firstItem="ehE-Mb-nAT" firstAttribute="trailing" secondItem="mnA-mz-mwx" secondAttribute="trailing" id="7U1-sg-AFw"/>
                                                 <constraint firstAttribute="bottom" secondItem="hGh-Bf-rQ0" secondAttribute="bottom" constant="15" id="Fmq-h1-FMU"/>
                                                 <constraint firstAttribute="trailing" secondItem="mnA-mz-mwx" secondAttribute="trailing" constant="15" id="JaV-cZ-4GE"/>
                                                 <constraint firstAttribute="trailing" secondItem="hGh-Bf-rQ0" secondAttribute="trailing" constant="15" id="YP4-C2-aD3"/>
@@ -374,9 +399,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descLb" destination="VMc-D8-NwL" id="exh-mO-dLu"/>
+                                            <outlet property="descVw" destination="mnA-mz-mwx" id="5K3-1H-Wp5"/>
                                             <outlet property="developerBtn" destination="J5w-Oc-xef" id="tP1-5t-Nc7"/>
                                             <outlet property="readMoreBtn" destination="duW-wR-VcA" id="jbU-TX-f3c"/>
-                                            <outlet property="readMoreVw" destination="mnA-mz-mwx" id="5K3-1H-Wp5"/>
+                                            <outlet property="readMoreGradatientVw" destination="4yw-Nn-NUD" id="Rcs-fO-YGk"/>
+                                            <outlet property="readMoreVw" destination="ehE-Mb-nAT" id="XJQ-tG-OOz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -624,11 +651,6 @@
             <point key="canvasLocation" x="3500" y="438"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="288-OS-gI7">
-            <size key="intrinsicContentSize" width="80" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <image name="airplane" catalog="system" width="128" height="115"/>
         <image name="arrowtriangle.forward" catalog="system" width="128" height="113"/>

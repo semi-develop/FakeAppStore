@@ -58,13 +58,7 @@ class SearchHistoryRS{
         return returnArr
     }
     
-//    func update(){
-//
-//    }
-//
-//    func select(){
-//    }
-    
+
     
     
 }
