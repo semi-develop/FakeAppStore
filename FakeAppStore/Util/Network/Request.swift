@@ -9,8 +9,7 @@ import Foundation
 
 protocol SendAppListRequest{
     var url:String {get}
-    func startAppListRequest()
-    func failRequest()
+    func appListRequest(term: String)
 }
 
 class Request{

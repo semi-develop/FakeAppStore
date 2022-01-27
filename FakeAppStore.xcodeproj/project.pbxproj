@@ -15,7 +15,8 @@
 		A6943AB9277371C4009FCEBF /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6943AB3277371C4009FCEBF /* TodayViewController.swift */; };
 		A6943ABA277371C4009FCEBF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6943AB4277371C4009FCEBF /* GameViewController.swift */; };
 		A6943ABB277371C4009FCEBF /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6943AB5277371C4009FCEBF /* AppViewController.swift */; };
-		A6943ABF27737301009FCEBF /* Model in Resources */ = {isa = PBXBuildFile; fileRef = A6943ABE27737301009FCEBF /* Model */; };
+		CE26F59F279E61C600518138 /* BindingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26F59E279E61C600518138 /* BindingHelper.swift */; };
+		CE26F5A1279E63F700518138 /* AppInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26F5A0279E63F700518138 /* AppInfoVM.swift */; };
 		CE4E28012767FD1000261E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28002767FD1000261E53 /* AppDelegate.swift */; };
 		CE4E28032767FD1000261E53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E28022767FD1000261E53 /* SceneDelegate.swift */; };
 		CE4E28082767FD1000261E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4E28062767FD1000261E53 /* Main.storyboard */; };
@@ -92,8 +93,9 @@
 		A6943AB3277371C4009FCEBF /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		A6943AB4277371C4009FCEBF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A6943AB5277371C4009FCEBF /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
-		A6943ABE27737301009FCEBF /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		ABAE502D5CF86C0C970C903A /* Pods-FakeAppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeAppStore.debug.xcconfig"; path = "Target Support Files/Pods-FakeAppStore/Pods-FakeAppStore.debug.xcconfig"; sourceTree = "<group>"; };
+		CE26F59E279E61C600518138 /* BindingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingHelper.swift; sourceTree = "<group>"; };
+		CE26F5A0279E63F700518138 /* AppInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoVM.swift; sourceTree = "<group>"; };
 		CE4E27FD2767FD1000261E53 /* FakeAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4E28002767FD1000261E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4E28022767FD1000261E53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE26F59D279E60F700518138 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE26F5A0279E63F700518138 /* AppInfoVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CE4E27F42767FD1000261E53 = {
 			isa = PBXGroup;
 			children = (
@@ -218,10 +228,10 @@
 			isa = PBXGroup;
 			children = (
 				CED3A49C277BEA4B0024994C /* todo */,
+				CE26F59D279E60F700518138 /* ViewModel */,
 				CE5AFA992773E16F00AD9834 /* Model */,
 				CE5AFA982773DDA100AD9834 /* View */,
 				CE4E283727680D2600261E53 /* Util */,
-				A6943ABE27737301009FCEBF /* Model */,
 				CE4E28002767FD1000261E53 /* AppDelegate.swift */,
 				CE4E28022767FD1000261E53 /* SceneDelegate.swift */,
 				CE4E28062767FD1000261E53 /* Main.storyboard */,
@@ -267,6 +277,7 @@
 		CE4E283727680D2600261E53 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CE26F59E279E61C600518138 /* BindingHelper.swift */,
 				CE5AFA9E2773E20F00AD9834 /* DB */,
 				CE65C1EE276B1787006F46BC /* Extensions */,
 				CE4E283B27681BD700261E53 /* Network */,
@@ -466,7 +477,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED3A49D277BEA4B0024994C /* todo in Resources */,
-				A6943ABF27737301009FCEBF /* Model in Resources */,
 				CE6FCA4C27882900009EBA0E /* GoNetworkSetVw.xib in Resources */,
 				CE4E280D2767FD1300261E53 /* LaunchScreen.storyboard in Resources */,
 				CE4E280A2767FD1300261E53 /* Assets.xcassets in Resources */,
@@ -610,6 +620,7 @@
 				CE65C1E3276AADA3006F46BC /* UIView+Extension.swift in Sources */,
 				CE5AFA9C2773E19B00AD9834 /* AppInfo.swift in Sources */,
 				CE4E283927681BBD00261E53 /* Const.swift in Sources */,
+				CE26F5A1279E63F700518138 /* AppInfoVM.swift in Sources */,
 				CE5AFAA02773E21800AD9834 /* SearchHistoryRS.swift in Sources */,
 				CE65C1E7276AADA3006F46BC /* UILabel+Extension.swift in Sources */,
 				CE65C1E9276AADA3006F46BC /* UIButton+Extension.swift in Sources */,
@@ -626,6 +637,7 @@
 				A6943AB7277371C4009FCEBF /* AppDetailViewController.swift in Sources */,
 				CE6FCA4D27882900009EBA0E /* GoNetworkSetVw.swift in Sources */,
 				CE4E28012767FD1000261E53 /* AppDelegate.swift in Sources */,
+				CE26F59F279E61C600518138 /* BindingHelper.swift in Sources */,
 				A6943ABA277371C4009FCEBF /* GameViewController.swift in Sources */,
 				CE65C1E6276AADA3006F46BC /* String+Extension.swift in Sources */,
 				CE65C1E1276AADA3006F46BC /* UITextView+Extension.swift in Sources */,

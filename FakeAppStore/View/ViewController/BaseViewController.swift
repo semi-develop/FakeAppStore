@@ -34,15 +34,6 @@ class BaseViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name:NSNotification.Name.networkStateNoti , object: nil)
     }
     
-    func imgSizeArrayFromUrl(url:String) -> (width:Int, height:Int){ //하드 코딩해야하는 부분임.. 크기에 대해 값이 내려오진않는다.
-        
-        var imgNm = url.components(separatedBy: "/").last
-        imgNm = imgNm?.components(separatedBy: ".").first?.replace(target: "bb", to: "")
-        let imgSize = imgNm?.components(separatedBy: "x")
-
-        return (width: Int(imgSize![0])!, height: Int(imgSize![1])!)
-    }
-    
     
     func connectNetwork(is connect: Bool){
         print("network connect is \(connect)")
