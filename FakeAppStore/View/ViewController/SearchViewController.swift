@@ -48,15 +48,15 @@ class SearchViewController: BaseViewController{
         appInfoVM.requestState.subscribe{
             state in
             
-            switch state {
-            case .success:
-                self.contentTb.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-                self.contentTb.reloadData()
-            case .fail:
-                self.failRequest()
-            case .networkError:
-                self.networkError()
-            }
+                switch state {
+                case .success:
+                    self.contentTb.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                    self.contentTb.reloadData()
+                case .fail:
+                    self.failRequest()
+                case .networkError:
+                    self.networkError()
+                }
         }
     }
     
@@ -127,6 +127,9 @@ extension SearchViewController:UISearchResultsUpdating,UISearchBarDelegate{
     
     func searchApp(text:String){
         tableMode = .contentsMode
+        self.searchbarTb.isHidden = true
+        self.navigationItem.searchController?.searchBar.endEditing(true)
+        
         SearchHistoryRS.db.insert(search: text.trim())
         searchArr = SearchHistoryRS.db.selectAll()
         appInfoVM.update(keyword: text)
@@ -139,6 +142,8 @@ extension SearchViewController:UISearchResultsUpdating,UISearchBarDelegate{
 }
 
 extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView{
             
@@ -194,15 +199,13 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
         case contentTb:
             switch tableMode{
             case .historyMode:
-                return 30.0
+                return 60.0
             case .contentsMode:
                 
-                if appInfoVM.count() == 0{
-                    return 0
-                }
                 var cHeight = 80.0 + Size.vertivalMargin*2 + Size.viewMargin //80.0 위에 뷰
-                
-                cHeight += appInfoVM.imgHeight(index: indexPath.row)
+                print(indexPath.row)
+                print(appInfoVM)
+                //cHeight += appInfoVM.imgHeight(index: indexPath.row)
                 
                 return  cHeight
             }
