@@ -38,6 +38,8 @@ class SearchViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentTb.delegate = self
+        contentTb.dataSource = self
         setSearchBar()
 
         
@@ -50,22 +52,22 @@ class SearchViewController: BaseViewController{
             
                 switch state {
                 case .success:
-                    self.contentTb.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
                     self.contentTb.reloadData()
+                    self.contentTb.scrollToRow(at: NSIndexPath(row: NSNotFound, section: 0) as IndexPath, at: .top, animated: false)
                 case .fail:
                     self.failRequest()
                 case .networkError:
                     self.networkError()
+                case .none:
+                    break
                 }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("SearchViewController viewDidLoad")
         
         navigationController!.navigationBar.sizeToFit()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -203,9 +205,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             case .contentsMode:
                 
                 var cHeight = 80.0 + Size.vertivalMargin*2 + Size.viewMargin //80.0 위에 뷰
-                print(indexPath.row)
-                print(appInfoVM)
-                //cHeight += appInfoVM.imgHeight(index: indexPath.row)
+                cHeight += appInfoVM.imgHeight(index: indexPath.row)
                 
                 return  cHeight
             }

@@ -32,6 +32,7 @@ enum RequestState{
     case success
     case fail
     case networkError
+    case none
 }
 
 struct Size{

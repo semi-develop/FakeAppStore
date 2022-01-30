@@ -22,7 +22,7 @@ class AppInfoVM: AppInfoVMProtocol{
     
     let screenshotMax = 3
     
-    let requestState:Observable<RequestState> = Observable(RequestState.success)
+    let requestState:Observable<RequestState> = Observable(RequestState.none)
     
     var appInfos: [AppInfo]?
     var selAppInfoVM: AppInfoTestVM!
@@ -140,7 +140,7 @@ extension AppInfoVM{
     func appListRequest(term: String) {
 
         var searchRequestParams = Url.searchStoreBaseParams
-        searchRequestParams["term"] = "music"
+        searchRequestParams["term"] = term
 
         let request = Request(stringUrl: url,params: searchRequestParams)
         request.sendRequest{
@@ -170,6 +170,8 @@ extension AppInfoVM{
                 case .networkError:
                     //network error
                     self.requestState.value = .networkError
+                    break
+                case .none:
                     break
                 }
             }

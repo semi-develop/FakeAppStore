@@ -145,10 +145,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="FMI-Ec-kVh"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0Z7-hI-D5C"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -651,6 +647,11 @@
             <point key="canvasLocation" x="3500" y="438"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="288-OS-gI7">
+            <size key="intrinsicContentSize" width="80" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="airplane" catalog="system" width="128" height="115"/>
         <image name="arrowtriangle.forward" catalog="system" width="128" height="113"/>
