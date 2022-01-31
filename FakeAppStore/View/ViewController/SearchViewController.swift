@@ -74,7 +74,7 @@ class SearchViewController: BaseViewController{
         if segue.identifier == SegueName.segueListToDetail
         {
             guard let dest = segue.destination as? AppDetailViewController else{return}
-            dest.appInfoTestVM = appInfosVM.selAppInfoVM
+            dest.appInfoVM = appInfosVM.selAppInfoVM
         }
     }
     
