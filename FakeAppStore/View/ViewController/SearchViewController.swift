@@ -38,8 +38,6 @@ class SearchViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contentTb.delegate = self
-        contentTb.dataSource = self
         setSearchBar()
 
         

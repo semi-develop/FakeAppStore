@@ -145,6 +145,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="NTk-Y8-mba"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3ch-fe-ZU8"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
