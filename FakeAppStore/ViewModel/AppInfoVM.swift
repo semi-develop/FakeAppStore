@@ -8,24 +8,14 @@
 import Foundation
 import SwiftUI
 
-protocol AppInfoVMProtocol {
-    var appInfos: [AppInfo]? { get set }
-    var selAppInfoVM: AppInfoTestVM!{ get set } //없을수가 없음
-    var errorMessage: Observable<String?> { get set }
-    var error: Observable<Bool> { get set }
-    func update(keyword: String)
-    func setError(_ message: String)
-
-}
-
-class AppInfoVM: AppInfoVMProtocol{
+class AppInfosVM{
     
     let screenshotMax = 3
     
     let requestState:Observable<RequestState> = Observable(RequestState.none)
     
     var appInfos: [AppInfo]?
-    var selAppInfoVM: AppInfoTestVM!
+    var selAppInfoVM: AppInfoVM!
     
     var errorMessage: Observable<String?> = Observable(nil)
     var error: Observable<Bool> = Observable(false)
@@ -95,7 +85,7 @@ class AppInfoVM: AppInfoVMProtocol{
     }
     
     func setSelAppInfo(index:Int){
-        selAppInfoVM = AppInfoTestVM(appInfo: appInfos![index])
+        selAppInfoVM = AppInfoVM(appInfo: appInfos![index])
     }
     
     func clearData(){
@@ -131,7 +121,7 @@ class AppInfoVM: AppInfoVMProtocol{
 }
 
 
-extension AppInfoVM{
+extension AppInfosVM:SendAppListRequest{
     
     var url: String {
         return Url.searchStore
@@ -178,7 +168,7 @@ extension AppInfoVM{
 }
 
  
-class AppInfoTestVM{
+class AppInfoVM{
     let screenshotZoom = 1/1.5
     
     var appInfo:AppInfo

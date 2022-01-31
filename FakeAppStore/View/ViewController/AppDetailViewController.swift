@@ -26,7 +26,7 @@ class AppDetailViewController: BaseViewController {
     
     let developBtnSize = 50.0
     
-    var appInfoTestVM:AppInfoTestVM!
+    var appInfoVM:AppInfoVM!
     
     var readMore:Bool = false
     var readMoreSize:CGFloat = 0
@@ -54,11 +54,11 @@ extension AppDetailViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.row{
         case basicCellIdx:
             let cell = tableView.dequeueReusableCell(withIdentifier: basicCellId) as! AppDetailBasicTableViewCell
-            return appInfoTestVM.setBasicCell(cell: cell)
+            return appInfoVM.setBasicCell(cell: cell)
             
         case screenshotCellIdx:
             let cell = tableView.dequeueReusableCell(withIdentifier: screenshotCellId) as! AppDetailSceenshotTableViewCell
-            return appInfoTestVM.setScreenshotCell(cell: cell)
+            return appInfoVM.setScreenshotCell(cell: cell)
             
         case detailCellIdx:
             let cell = tableView.dequeueReusableCell(withIdentifier: detailCellId) as! AppDetailDescTableViewCell
@@ -71,7 +71,7 @@ extension AppDetailViewController:UITableViewDelegate,UITableViewDataSource{
             
             cell.readMoreDelegate = self
             
-            return appInfoTestVM.setDetailCell(cell: cell)
+            return appInfoVM.setDetailCell(cell: cell)
             
         default:
             let cell = UITableViewCell()
@@ -90,7 +90,7 @@ extension AppDetailViewController:UITableViewDelegate,UITableViewDataSource{
         case screenshotCellIdx:
             var cHeight = 0.0 //이거 나중에 추가 할 거 있으니까 미리 설정해놓는거 위에 요약 올려놔야함.
             
-            return cHeight + appInfoTestVM.setScreenshotCellHeight()
+            return cHeight + appInfoVM.setScreenshotCellHeight()
            
         case detailCellIdx:
             var height = Size.vertivalMargin*2 + developBtnSize + Size.viewMargin

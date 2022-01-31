@@ -12,7 +12,7 @@ class SearchViewController: BaseViewController{
 
     @IBOutlet weak var contentTb: UITableView!
     
-    let appInfoVM = AppInfoVM()
+    let appInfosVM = AppInfosVM()
     
     let naviTitle = "Search"
     let paramKeyTerm = "term"
@@ -47,7 +47,7 @@ class SearchViewController: BaseViewController{
         searchArr = SearchHistoryRS.db.selectAll()
         
         
-        appInfoVM.requestState.subscribe{
+        appInfosVM.requestState.subscribe{
             state in
             
                 switch state {
@@ -74,7 +74,7 @@ class SearchViewController: BaseViewController{
         if segue.identifier == SegueName.segueListToDetail
         {
             guard let dest = segue.destination as? AppDetailViewController else{return}
-            dest.appInfoTestVM = appInfoVM.selAppInfoVM
+            dest.appInfoTestVM = appInfosVM.selAppInfoVM
         }
     }
     
@@ -134,12 +134,12 @@ extension SearchViewController:UISearchResultsUpdating,UISearchBarDelegate{
         
         SearchHistoryRS.db.insert(search: text.trim())
         searchArr = SearchHistoryRS.db.selectAll()
-        appInfoVM.update(keyword: text)
+        appInfosVM.update(keyword: text)
     }
     
     func clearSearchContents(){
         tableMode = .historyMode
-        appInfoVM.clearData()
+        appInfosVM.clearData()
     }
 }
 
@@ -157,7 +157,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             case .historyMode:
                 return searchArr.count
             case .contentsMode:
-                return appInfoVM.count()
+                return appInfosVM.count()
             }
             
         default:
@@ -184,7 +184,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             case .contentsMode:
                 let cell = tableView.dequeueReusableCell(withIdentifier: seacrchContentsCellId) as! SearchContentTableViewCell
                 
-                return appInfoVM.setSearchCell(cell: cell, index: indexPath.row)
+                return appInfosVM.setSearchCell(cell: cell, index: indexPath.row)
             }
             
         default:
@@ -205,7 +205,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
             case .contentsMode:
                 
                 var cHeight = 80.0 + Size.vertivalMargin*2 + Size.viewMargin //80.0 위에 뷰
-                cHeight += appInfoVM.imgHeight(index: indexPath.row)
+                cHeight += appInfosVM.imgHeight(index: indexPath.row)
                 
                 return  cHeight
             }
@@ -234,7 +234,7 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
                 
                 searchApp(text: text)
             case .contentsMode:
-                appInfoVM.setSelAppInfo(index: indexPath.row)
+                appInfosVM.setSelAppInfo(index: indexPath.row)
                 self.performSegue(withIdentifier: SegueName.segueListToDetail, sender: nil)
             }
             break
