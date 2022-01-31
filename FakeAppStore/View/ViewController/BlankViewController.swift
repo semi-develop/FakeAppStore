@@ -1,5 +1,5 @@
 //
-//  AppViewController.swift
+//  ArcadeViewController.swift
 //  KakaoBank
 //
 //  Created by Semi's MiniMac on 2021/11/27.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppViewController: BaseViewController {
+class BlankViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

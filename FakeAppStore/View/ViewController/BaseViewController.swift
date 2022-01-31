@@ -36,7 +36,6 @@ class BaseViewController: UIViewController {
     
     
     func connectNetwork(is connect: Bool){
-        print("network connect is \(connect)")
         if connect{
             NoNetworkVw.removeFromSuperview()
         }else{
@@ -45,7 +44,6 @@ class BaseViewController: UIViewController {
     }
     
     func networkError() {
-        print("networkError")
         let alert = UIAlertController(title: "오류", message: "네트워크 에러. 다시 시도해주세요.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler : nil))
         present(alert, animated: false, completion: nil)
@@ -54,7 +52,6 @@ class BaseViewController: UIViewController {
     
     
     func failRequest(){
-        print("failRequest")
         let alert = UIAlertController(title: "오류", message: "다시 한번 시도해주세요.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler : nil))
         present(alert, animated: false, completion: nil)

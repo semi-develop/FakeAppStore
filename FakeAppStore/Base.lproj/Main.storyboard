@@ -496,7 +496,7 @@
         <!--투데이-->
         <scene sceneID="yFG-DD-avb">
             <objects>
-                <viewController id="3Yh-5X-QPL" customClass="TodayViewController" customModule="FakeAppStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Yh-5X-QPL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ekS-fo-aoI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -528,7 +528,7 @@
         <!--게임-->
         <scene sceneID="xMn-Na-uVQ">
             <objects>
-                <viewController id="kma-PL-WnD" customClass="GameViewController" customModule="FakeAppStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kma-PL-WnD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FiL-uY-H2j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -560,7 +560,7 @@
         <!--앱-->
         <scene sceneID="HkM-hq-aqb">
             <objects>
-                <viewController id="4Ko-Ic-sd3" customClass="AppViewController" customModule="FakeAppStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4Ko-Ic-sd3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="azg-9K-QMY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -592,7 +592,7 @@
         <!--게임-->
         <scene sceneID="wZ6-Hd-Z2u">
             <objects>
-                <viewController id="cw5-Ym-hcU" customClass="ArcadeViewController" customModule="FakeAppStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cw5-Ym-hcU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qyL-Gt-EEA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

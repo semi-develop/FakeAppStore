@@ -151,11 +151,9 @@ extension AppInfoVM{
                     guard let searchContents = try? JSONDecoder().decode(SearchContents.self, from: request.data!) else{
                         //fail
                         self.requestState.value = .fail
-                        print("에러!")
                         return
                     }
 
-                    print("성공!")
                     guard let infos = searchContents.results else{return}
                     self.appInfos = infos
                     self.requestState.value = .success
@@ -164,7 +162,6 @@ extension AppInfoVM{
                 case .fail:
                     //fail
                     self.requestState.value = .fail
-                    print("에러!")
                     break
 
                 case .networkError:
